@@ -1,0 +1,49 @@
+
+
+<script type="text/javascript" src ="../static/protovis.min.js"> </script>
+ <script type="text/javascript" src="../static/facebookData/{{ g }}/{{ g }}.js"></script>
+
+
+  <body>
+    <script type="text/javascript+protovis">
+
+var w = document.body.clientWidth,
+    h = document.body.clientHeight,
+    colors = pv.Colors.category19();
+
+var vis = new pv.Panel()
+    .width(400)
+    .height(400)
+    .fillStyle("white")
+    //.event("mousedown", pv.Behavior.pan()) //dra funksjonen denne og, aktiveres for mer gøy
+    .event("mousewheel", pv.Behavior.zoom());
+
+var force = vis.add(pv.Layout.Force)
+    .nodes(fbGraph.nodes)
+    .links(fbGraph.links)
+	.springConstant(0.05)
+	.bound(true)
+	.iterations(100)	//slå denne på for å ha et ikke bevegelig bilde, mer "brukervaennelig kanskje"
+	.springLength(0.05)
+	.chargeConstant(-40)
+	.dragConstant(1)
+	.springDamping(0.05);
+
+force.link.add(pv.Line);
+
+force.node.add(pv.Dot)
+    .size(function(d) (d.linkDegree + 4) * Math.pow(this.scale, -1.5))
+    .fillStyle(function(d) d.fix ? "brown" : colors(d.group))
+    .strokeStyle(function() this.fillStyle().darker())
+    .lineWidth(1)
+    .title(function(d) d.nodeName)
+   // .event("mousedown", pv.Behavior.drag()) //dra-funskjonen, gjør det laggy
+    //.event("drag", force); //same thing as above
+
+vis.render();
+
+    </script>
+  </body>
+
+
+
