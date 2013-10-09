@@ -91,8 +91,8 @@ body {
     text-shadow: 1px 1px 0 rgba(255, 255, 255, 1);
 }
 
-p { margin-bottom: 25px; }
-p.intro { font-size: 18px; }
+p { margin-bottom: 25px; font-size:12px}
+p.intro { font-size: 12px; }
 
 /* links */
 a:link, a:visited {
@@ -736,3 +736,12 @@ footer  ul.footer-menu li:first-child a {
     border: none;
 }
 
+#loading {
+    visibility: hidden;
+}
+
+#button
+{
+    margin-left:250px;
+    visibility:visible;
+}

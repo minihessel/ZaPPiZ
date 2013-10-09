@@ -1,4 +1,4 @@
-from flask import Flask, render_template, render_template_string
+from flask import Flask, render_template, render_template_string, request
 import sys
 import GmlToJson as gtj
 
@@ -15,10 +15,20 @@ app = Flask(__name__)
 
 
 
+@app.route('/',methods=['GET', 'POST'])
+def home(g = None, l = None):
+    if request.method == 'POST':
 
-@app.route('/')
-def home():
-  return render_template('/home.html')
+        id = getFriends.main()
+
+        list_of_people = gtj.convert_gml_to_js(id)
+
+
+        return render_template('/Test.html', g = id, l = list_of_people)
+
+
+
+    return render_template('/home.html')
 
 @app.route('/about')
 def about():

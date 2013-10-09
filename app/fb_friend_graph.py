@@ -57,6 +57,14 @@ import facebook
 import traceback
 
 
+class Person(object):
+    def __init__(self, id, name):
+        self.id = id
+        self.name = name
+        community = None
+
+list_of_people = []
+
 class MutualFriendGraphMLFile(object):
     """This class writes a GraphML file of the mutual friends of the user the
     class in initialized with.
@@ -94,7 +102,9 @@ class MutualFriendGraphMLFile(object):
 
 
     def addFriendNodes(self, friends):
+
         """Writes a list of friend nodes to the file"""
+
         for friend in friends:
             if friend['id'] == self.user['id']:
                 return None
@@ -102,6 +112,8 @@ class MutualFriendGraphMLFile(object):
                 """Writes a node to the file"""
 
                 self.addFriendNode(friend['id'], friend['name'])
+                list_of_people.append(Person(friend['id'], friend['name']))
+
 
 
     def addFriendEdge(self, source_id, target_id):
@@ -223,7 +235,7 @@ def graph_mutual_friends(access_token):
 
     me = graph.get_object('me')
     print 'Retrieving my (%s(%s)) friends...' % (me['name'], me['id'])
-    my_friends = graph.get_connections(me['id'], 'friends')["data"]
+    my_friends = graph.get_connections(me['id'], 'friends',)["data"]
 
     directory = load_write_directory("",me['id'])
 
@@ -260,6 +272,7 @@ def graph_mutual_friends(access_token):
         print 'Writing  %s...' % filename
         write_mutual_friends(filename, me, my_friends, my_mutual_friends)
         print 'Done!'
+
         return me['id']
 
 

@@ -2,9 +2,36 @@
 {% block content %}
   <div class="jumbo">
     <h2>Welcome to the Flask app<h2>
- <form name="input" action="test" method="get">
+<script>
+   function setVisible() {
+
+    document.getElementById( 'loading' ).style.visibility = "visible";
+    document.getElementById( 'button' ).style.visibility = "hidden";
+
+
+}
+</script>
+
+ <form name="input"  method="POST" onclick="setVisible()" id="button">
+
+
+
 
 <input type="submit" value="Submit">
-</form>
+
+
+<div id ="loading">
+
+     <img src="../static/images/dog.gif" id="Image1"> </img>
+    <br>
+    <br>
+
+     <i> Our dog is fetching your friends from FaceBook. Please be patient, this usually takes XX seconds!!</i>
+
+
+    </div>
+
+
+ </form>
 
 {% endblock %}

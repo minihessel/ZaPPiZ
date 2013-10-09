@@ -4,17 +4,29 @@ import re
 import json
 import fileinput
 import community as com
-
+import fb_friend_graph as fb
 def convert_gml_to_js(id):
     print "loading gml..."
     g = nx.read_graphml("static/facebookData/" + id + "/" + id + ".graphml")
     print "gml now graph"
     g= g.to_undirected()
     partition = com.best_partition(g)
-
-
+    print partition
     sameas = {'nodes': [], 'links': []}
     node_ids = {}
+
+
+    for key in partition:
+        for p in fb.list_of_people:
+            if("friend" + str(p.id) == key ):
+                p.community = partition.get(key)
+
+    for p in fb.list_of_people:
+         print p.name
+         print p.id
+         print p.community
+
+
 
     print "finding communities..."
     for key, value in partition.iteritems() :
@@ -48,6 +60,8 @@ def convert_gml_to_js(id):
     text_file.close()
 
     print "Done!"
+    return fb.list_of_people
+
 
 
  #

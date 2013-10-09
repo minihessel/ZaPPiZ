@@ -1,10 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
 
 
 <script type="text/javascript" src ="../static/protovis.min.js"> </script>
  <script type="text/javascript" src="../static/facebookData/{{ g }}/{{ g }}.js"></script>
 
 
-  <body>
+  <p> {{ l }}</p>
     <script type="text/javascript+protovis">
 
 var w = document.body.clientWidth,
@@ -14,7 +16,6 @@ var w = document.body.clientWidth,
 var vis = new pv.Panel()
     .width(400)
     .height(400)
-    .fillStyle("white")
     //.event("mousedown", pv.Behavior.pan()) //dra funksjonen denne og, aktiveres for mer gøy
     .event("mousewheel", pv.Behavior.zoom());
 
@@ -39,11 +40,21 @@ force.node.add(pv.Dot)
     .title(function(d) d.nodeName)
    // .event("mousedown", pv.Behavior.drag()) //dra-funskjonen, gjør det laggy
     //.event("drag", force); //same thing as above
+ vis.render();
 
-vis.render();
 
     </script>
+  <table>
+      {% for i in l %}
+      <tr>
+          <td>{{ i.name }}</td><td></td>
+      </tr>
+
+      {% endfor %}
+
+  </table>
   </body>
 
 
 
+{% endblock %}
