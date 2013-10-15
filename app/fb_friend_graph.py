@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 #-------------------------------------------------------------------------------
 # Name:        fb_friend_graph.py
 # Purpose:     Writes a graphml file. See description below.
@@ -264,11 +266,7 @@ def graph_mutual_friends(access_token):
         print "Creating files in  %s" % os.path.join(os.path.abspath(os.curdir), directory)
         print 'Writing mutual friends to file...'
        # pickle_mutual_friends(directory, me, my_mutual_friends)
-        print "hello"
-        print "tata" + directory
-        print "HEY"  + directory + "%s.graphml" % ( me['id'])
         filename =  directory + "%s.graphml" % ( me['id'])
-        print filename + " HERHERHERHERHERHER"
         print 'Writing  %s...' % filename
         write_mutual_friends(filename, me, my_friends, my_mutual_friends)
         print 'Done!'

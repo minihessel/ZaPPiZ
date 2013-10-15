@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 #-------------------------------------------------------------------------------
 # Name:        main.py
 # Purpose:     Main file to create the Facebook graphml file outlined below.

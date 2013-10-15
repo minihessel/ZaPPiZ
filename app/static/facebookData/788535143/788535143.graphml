@@ -25,7 +25,7 @@ http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
 <node id="friend536671489"><data key="name">Adrian V. Johannessen</data></node>
 <node id="friend538142053"><data key="name">Sandra Fonseca</data></node>
 <node id="friend539091743"><data key="name">Lill-Kristin Moe Karlsen</data></node>
-<node id="friend540242442"><data key="name">Line Gulli Carlsen</data></node>
+<node id="friend540242442"><data key="name">Line Nancy Carlsen</data></node>
 <node id="friend540486105"><data key="name">Britt Elin</data></node>
 <node id="friend540646236"><data key="name">Vegar Njøsen</data></node>
 <node id="friend542935867"><data key="name">Simen Lien</data></node>
@@ -268,6 +268,7 @@ http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
 <node id="friend1046412381"><data key="name">Tobias Farstad</data></node>
 <node id="friend1049888926"><data key="name">Harman Singh Nijjar</data></node>
 <node id="friend1137585384"><data key="name">Kamilla Arnesen</data></node>
+<node id="friend1232661224"><data key="name">Stian Engrønningen</data></node>
 <node id="friend1272134314"><data key="name">Stian Åkvik</data></node>
 <node id="friend1274103815"><data key="name">Cim Stordal</data></node>
 <node id="friend1324027125"><data key="name">Kenny Unneland</data></node>
@@ -547,6 +548,7 @@ http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
 <edge id="edge800690385->781400401" source="friend800690385" target="friend781400401" />
 <edge id="edge800690385->810495303" source="friend800690385" target="friend810495303" />
 <edge id="edge800690385->824900028" source="friend800690385" target="friend824900028" />
+<edge id="edge800690385->1232661224" source="friend800690385" target="friend1232661224" />
 <!-- Jonas Angelsen -->
 <edge id="edge577725241->800690385" source="friend577725241" target="friend800690385" />
 <!-- Maiken Beate Fjellanger -->
@@ -557,6 +559,7 @@ http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
 <edge id="edge781400401->800690385" source="friend781400401" target="friend800690385" />
 <edge id="edge781400401->810495303" source="friend781400401" target="friend810495303" />
 <edge id="edge781400401->824900028" source="friend781400401" target="friend824900028" />
+<edge id="edge781400401->1232661224" source="friend781400401" target="friend1232661224" />
 <edge id="edge781400401->1377943421" source="friend781400401" target="friend1377943421" />
 <!-- Even Hope -->
 <edge id="edge760895461->560561960" source="friend760895461" target="friend560561960" />
@@ -1036,6 +1039,7 @@ http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
 <edge id="edge544165952->800690385" source="friend544165952" target="friend800690385" />
 <edge id="edge544165952->810495303" source="friend544165952" target="friend810495303" />
 <edge id="edge544165952->824900028" source="friend544165952" target="friend824900028" />
+<edge id="edge544165952->1232661224" source="friend544165952" target="friend1232661224" />
 <edge id="edge544165952->1377943421" source="friend544165952" target="friend1377943421" />
 <!-- Ingrid Kaldheim -->
 <edge id="edge576813224->522732790" source="friend576813224" target="friend522732790" />
@@ -5736,6 +5740,10 @@ http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
 <edge id="edge546796231->1003123120" source="friend546796231" target="friend1003123120" />
 <edge id="edge546796231->1022410547" source="friend546796231" target="friend1022410547" />
 <edge id="edge546796231->1849257251" source="friend546796231" target="friend1849257251" />
+<!-- Stian Engrønningen -->
+<edge id="edge1232661224->544165952" source="friend1232661224" target="friend544165952" />
+<edge id="edge1232661224->781400401" source="friend1232661224" target="friend781400401" />
+<edge id="edge1232661224->800690385" source="friend1232661224" target="friend800690385" />
 <!-- Erik Silkoset -->
 <edge id="edge632376200->520547591" source="friend632376200" target="friend520547591" />
 <edge id="edge632376200->521246026" source="friend632376200" target="friend521246026" />
@@ -6630,7 +6638,7 @@ http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
 <edge id="edge685365692->1003123120" source="friend685365692" target="friend1003123120" />
 <edge id="edge685365692->1022410547" source="friend685365692" target="friend1022410547" />
 <edge id="edge685365692->1849257251" source="friend685365692" target="friend1849257251" />
-<!-- Line Gulli Carlsen -->
+<!-- Line Nancy Carlsen -->
 <edge id="edge540242442->502029674" source="friend540242442" target="friend502029674" />
 <edge id="edge540242442->539091743" source="friend540242442" target="friend539091743" />
 <edge id="edge540242442->546010046" source="friend540242442" target="friend546010046" />

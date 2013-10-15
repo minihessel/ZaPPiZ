@@ -208,8 +208,8 @@ header {
     margin: 0 auto;
 }
 .content-wrap {
-    width: 940px;
-    margin: 0 auto;
+    width: 100%;
+
 }
 .content-wrap section {
     position: relative;
@@ -370,17 +370,15 @@ header nav ul a:active {
 /* -----------------------------------------
     Main Section
 ------------------------------------------ */
-section#main {
-    width: 940px;
-    background: none;
-}
+
+
 section#main h1 {
     margin-top: 10px;
     margin-bottom: 15px;
 }
 section#main .intro-box {
     float:left;
-    width:460px;
+    width:100%;
     min-height: 300px;
 }
 section#main .row .col h2 {
@@ -395,7 +393,7 @@ section#main .row .col h2 {
     background: url(../images/slider.png) no-repeat;
     margin-top: 30px;
     margin-bottom: 13px;
-    width: 420px;
+
     height: 234px;
 }
 .slider-wrapper #slider {
@@ -745,3 +743,13 @@ footer  ul.footer-menu li:first-child a {
     margin-left:250px;
     visibility:visible;
 }
+
+#graph
+{
+    position: absolute;
+    width: 100%;
+    margin-top:-100px;
+    margin-right:-100px;
+    margin-bottom:10px;
+}
+
