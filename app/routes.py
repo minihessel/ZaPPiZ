@@ -17,16 +17,14 @@ app = Flask(__name__)
 
 @app.route('/',methods=['get', 'POST'])
 def home(g = None, l = None, n = None, c = None):
-    if request.method == 'POST':
-        id = getFriends.main()
-        list_of_people = gtj.convert_gml_to_js(id)
-        number_of_communities = gtj.count_communities(list_of_people)
-        #Group colors
-        colors = ["#1f77b4", "#aec7e8", "#ff7f0e", "#ffbb78", "#2ca02c", "#98df8a", "#d62728", "#ff9896", "#9467bd", "#c5b0d5", "#8c564b", "#c49c94", "#e377c2", "#f7b6d2", "#7f7f7f", "#c7c7c7", "#bcbd22", "#dbdb8d", "#17becf", "#9edae5"]
-        return render_template('/Test.html', g = id, l = list_of_people, n = number_of_communities, c = colors)
-
-
-
+    if request.method == 'GET':
+        if request.args.get("btnStart") is not None:
+            id = getFriends.main()
+            list_of_people = gtj.convert_gml_to_js(id)
+            number_of_communities = gtj.count_communities(list_of_people)
+            #Group colors
+            colors = ["#1f77b4", "#aec7e8", "#ff7f0e", "#ffbb78", "#2ca02c", "#98df8a", "#d62728", "#ff9896", "#9467bd", "#c5b0d5", "#8c564b", "#c49c94", "#e377c2", "#f7b6d2", "#7f7f7f", "#c7c7c7", "#bcbd22", "#dbdb8d", "#17becf", "#9edae5"]
+            return render_template('/Test.html', g = id, l = list_of_people, n = number_of_communities, c = colors)
     return render_template('/home.html')
 
 @app.route('/about')
