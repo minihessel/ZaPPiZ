@@ -16,7 +16,7 @@ var w = document.body.clientWidth,
 var vis = new pv.Panel()
     .width(400)
     .height(400)
-    //.event("mousedown", pv.Behavior.pan()) //dra funksjonen denne og, aktiveres for mer gøy
+    .event("mousedown", pv.Behavior.pan()) //dra funksjonen denne og, aktiveres for mer gøy
     .event("mousewheel", pv.Behavior.zoom());
 
 var force = vis.add(pv.Layout.Force)
@@ -38,21 +38,34 @@ force.node.add(pv.Dot)
     .strokeStyle(function() this.fillStyle().darker())
     .lineWidth(1)
     .title(function(d) d.nodeName)
-   // .event("mousedown", pv.Behavior.drag()) //dra-funskjonen, gjør det laggy
-    //.event("drag", force); //same thing as above
+    .event("mousedown", pv.Behavior.drag()) //dra-funskjonen, gjør det laggy
+    .event("drag", force); //same thing as above
  vis.render();
 
 
     </script>
-  <table>
-      {% for i in l %}
-      <tr>
-          <td>{{ i.name }}</td><td></td>
-      </tr>
 
+<div>
+      {%
+          for x in range(n + 1)
+       %}
+
+         <table border="1" style="float: left; margin-left: 5px; font-size: 12px;">
+         <tr><td>  {{ x }}</td></tr>
+
+        {% for person in l %}
+            {% if x == person.community %}
+
+                   <tr><td>  {{ person.name }} </td></tr>
+
+                </tr>
+            {% endif %}
+        {% endfor %}
+          </table>
       {% endfor %}
+</div>
 
-  </table>
+
   </body>
 
 

@@ -11,6 +11,7 @@ def convert_gml_to_js(id):
     print "gml now graph"
     g= g.to_undirected()
     partition = com.best_partition(g)
+
     print partition
     sameas = {'nodes': [], 'links': []}
     node_ids = {}
@@ -21,18 +22,14 @@ def convert_gml_to_js(id):
             if("friend" + str(p.id) == key ):
                 p.community = partition.get(key)
 
-    for p in fb.list_of_people:
-         print p.name
-         print p.id
-         print p.community
-
-
-
     print "finding communities..."
     for key, value in partition.iteritems() :
         for n in g:
             if n == key:
                 g.node[key]['community'] = value
+
+
+
 
     print "appending nodes..."
     i = 0
@@ -62,16 +59,12 @@ def convert_gml_to_js(id):
     print "Done!"
     return fb.list_of_people
 
+# counter
+def count_communities(list):
+    counter = 0
+    for n in list:
+        if n.community > counter:
+            counter = n.community
 
+    return counter
 
- #
- # import os
- #    fileOs = "/facebookData/" + id + "/" + id + ".js"
- #    if os.path.exists(fileOs):
- #        f = file(fileOs, "r+")
- #    else:
- #        f = file(fileOs, "w")
- #        text_file = ("/facebookData/" + id + "/" + id + ".js", "w+")
- #        text_file = open ("/facebookData/" + id + "/" + id + ".js" , "w")
- #        text_file.write(str(javascript))
- #        text_file.close()

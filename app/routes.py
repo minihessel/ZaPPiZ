@@ -16,15 +16,16 @@ app = Flask(__name__)
 
 
 @app.route('/',methods=['GET', 'POST'])
-def home(g = None, l = None):
+def home(g = None, l = None, n = None):
     if request.method == 'POST':
 
         id = getFriends.main()
 
         list_of_people = gtj.convert_gml_to_js(id)
+        number_of_communities = gtj.count_communities(list_of_people)
 
 
-        return render_template('/Test.html', g = id, l = list_of_people)
+        return render_template('/Test.html', g = id, l = list_of_people, n = number_of_communities)
 
 
 
