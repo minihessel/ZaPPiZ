@@ -76,6 +76,7 @@ class MutualFriendGraphMLFile(object):
 
     def __init__(self, user_id, user_name, filename, mode='r'):
         """Initializes the file"""
+        list_of_people = []
         self.user = {'id': user_id, 'name': user_name}
         self.filename = filename
         self.names = {}
@@ -106,7 +107,7 @@ class MutualFriendGraphMLFile(object):
     def addFriendNodes(self, friends):
 
         """Writes a list of friend nodes to the file"""
-
+        del list_of_people[:]
         for friend in friends:
             if friend['id'] == self.user['id']:
                 return None
@@ -114,6 +115,7 @@ class MutualFriendGraphMLFile(object):
                 """Writes a node to the file"""
 
                 self.addFriendNode(friend['id'], friend['name'])
+
                 list_of_people.append(Person(friend['id'], friend['name']))
 
 

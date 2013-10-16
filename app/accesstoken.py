@@ -46,7 +46,6 @@ import urlparse
 import webbrowser
 from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
 
-
 javascript_redirect = '''<script type="text/javascript">
 var url = window.location.href.toString()
 window.location = url.replace("#", "?")
@@ -92,7 +91,7 @@ class AccessTokenRequestHandler(BaseHTTPRequestHandler):
             else:
                 self.server.error = query.get('error_reason', ['unknown error: %s' % str(query)])[0]
                 if self.server.error == 'user_denied':
-                    self.wfile.write(html % ('Error', 'You must login to Facebook for the software to work.<br/>' +
+                    self.wfiple.write(html % ('Error', 'You must login to Facebook for the software to work.<br/>' +
                         'This software does not store any user names or passwords.'))
                 else:
                     self.wfile.write(html % ('Error', 'Sorry! An error has occurred. Please try again.'))

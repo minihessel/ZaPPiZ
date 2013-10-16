@@ -3,11 +3,16 @@
 
 
 <script type="text/javascript" src ="../static/protovis.min.js"> </script>
- <script type="text/javascript" src="../static/facebookData/{{ g }}/{{ g }}.js"></script>
+ <script type="text/javascript" src="../static/facebookData/{{ f_id }}/{{ f_id }}.js"></script>
 
 <div id="wrap">
+    <!--- antall commnities, antall friends, biggest community -->
+    <h1> Your Facebook Network </h1>
+    <p style="font-size: 16px">Scroll down for more information about your facebook network, or hoover the mouse cursor over the
+                               "nodes" too see who the nodes are representing.</p>
 
-
+    <!-- find longest path -->
+<div style="text-align: center; border: 2px solid gray; ">
 <script type="text/javascript+protovis">
 function nodeColor(group) {
 
@@ -92,22 +97,48 @@ force.node.add(pv.Dot)
     .event("drag", force); //same thing as above
 
  vis.render();
-
-
-
-
-
     </script>
+    </div>
         </div>
     </div>
+    <!--- Hent litt morro info -->
 
+<h2> Fun facts about your facebook network </h2>
+<table border="1"  left; margin-left: 5px; font-size: 12px; background-color:#EBEBEB;">
+    <tr>
+        <th> What? </th>
+        <th> ID  </th>
+        <th> Name </th>
+        <th> Degree </th>
+        <th> Betweenes Centraility </th>
+    </tr>
+    <tr>
+        <td> Most Important Person </td>
+        <td> {{ most_important[0] }} </td>
+        <td> {{ most_important[1] }} </td>
+        <td> {{ most_important[2] }}  </td>
+        <td> {{ most_important[3] }} </td>
+    </tr>
+      <tr>
+        <td> Less Important Person </td>
+        <td> {{ smallest_node[0] }} </td>
+        <td> {{ smallest_node[1] }} </td>
+        <td> {{ smallest_node[2] }}  </td>
+        <td> {{ smallest_node[3] }} </td>
+    </tr>
+</table>
+<p style="font-size: 16px;">Number of communities: {{ communities + 1}}</p>
 
-      {% for x in range(n + 1)%}
-            <table border="1" style="float: left; margin-left: 5px; font-size: 12px; background-color:{{ c[x+1]}};">
-            <tr><td>  {{ x }}</td></tr>
-                {% for person in l %}
+    <!--- Skrive ut alle communtiteis --->
+
+<h2>Communities </h2>
+    <p style="font-size: 16px"> Click on a friend to go directly to their facebook page.</p>
+      {% for x in range(communities + 1)%}
+            <table border="1" style="float: left; margin-left: 5px; font-size: 12px; background-color:#EBEBEB;">
+            <tr><td style=" background-color:{{ c[x+1]}};">  {{ x }}</td></tr>
+                {% for person in list_of_people %}
                     {% if x == person.community %}
-                        <tr><td>  <a href="http://www.facebook.com/{{ person.id }}" >{{ person.name }}</a> </td></tr>
+                        <tr><td>  <a href="http://www.facebook.com/{{ person.id }}" target="_blank">{{ person.name }}</a> </td></tr>
                 </tr>
             {% endif %}
         {% endfor %}
