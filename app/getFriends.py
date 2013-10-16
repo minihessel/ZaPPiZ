@@ -48,8 +48,8 @@ def main():
     app_id = 183750651654082
     try:
         print "Opening Facebook. Please login to Facebook."
-        #access_token = get_access_token(app_id)
-        access_token = "CAACEdEose0cBAF7ZBMbOyTrBK7ejLlZALjSzvGz5zF4c2nGxyLk6lrMq2TwUs3C6i9LP60aoVSVsTZA2wJZCTONsjvUBmqgJZCPhUxZBeoyFYmf3etZA1TrNrU6ZBDriLZCTZAyBlmq74ZAGZBX3uJSSbHpmGvkCUXjeENgZCy5yIsuom1JfGneuJSM6K9eVRSHp7uTJwVeXTUkDz1wZDZD"
+        access_token = get_access_token(app_id)
+        #access_token = "CAACEdEose0cBAF7ZBMbOyTrBK7ejLlZALjSzvGz5zF4c2nGxyLk6lrMq2TwUs3C6i9LP60aoVSVsTZA2wJZCTONsjvUBmqgJZCPhUxZBeoyFYmf3etZA1TrNrU6ZBDriLZCTZAyBlmq74ZAGZBX3uJSSbHpmGvkCUXjeENgZCy5yIsuom1JfGneuJSM6K9eVRSHp7uTJwVeXTUkDz1wZDZD"
     except:
         traceback.print_exc()
     else:
