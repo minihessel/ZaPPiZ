@@ -194,13 +194,13 @@ mark {
     STRUCTURE
 --------------------------------------------------------- */
 #header-wrap {
-    background: url(../images/header-bg.png);
-    width: 100%;
-    height: 70px;
-    z-index: 99999;
 
-    top: 0;
-    left: 0;
+    width: 100%;
+    height: 100%;
+
+
+
+
 }
 header {
     position: relative;
@@ -325,13 +325,15 @@ footer {
 
 /* Logo */
 header hgroup {
-    position: absolute;
+
     background: url(../images/logo.png) no-repeat;
-    height: 31px;
-    width: 312px;
+    position: absolute;
+
+    height: 100%;
+    width: 100%;
     display: block;
-    top: 25px;
-    left: 0;
+    top: 5px;
+    left: -148px;
 }
 header hgroup h1 a {
     text-indent: -9999em;

@@ -48,7 +48,7 @@ from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
 
 javascript_redirect = '''<script type="text/javascript">
 var url = window.location.href.toString()
-window.location = url.replace("#", "?")
+window.location = url.replace("#", "")
 </script>
 '''
 
@@ -83,7 +83,7 @@ class AccessTokenRequestHandler(BaseHTTPRequestHandler):
         self.server.access_token = ""
         self.server.error = ""
 
-        if '?' in self.path:
+        if 'token' in self.path:
             query = urlparse.parse_qs(urlparse.urlparse(self.path)[4])
             if query.has_key('access_token'):
                 self.server.access_token = query['access_token'][0]
