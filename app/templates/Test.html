@@ -138,7 +138,7 @@ force.node.add(pv.Dot)
             <tr><td style=" background-color:{{ c[x+1]}};">  {{ x }}</td></tr>
                 {% for person in list_of_people %}
                     {% if x == person.community %}
-                        <tr><td>  <a href="http://www.facebook.com/{{ person.id }}" target="_blank">{{ person.name }}</a> </td></tr>
+                        <tr><td><img src="https://graph.facebook.com/{{ person.id }}/picture"></img>  <a href="http://www.facebook.com/{{ person.id }}" target="_blank">{{ person.name }}</a> </td></tr>
                 </tr>
             {% endif %}
         {% endfor %}
