@@ -107,6 +107,7 @@ force.node.add(pv.Dot)
 <table border="1"  left; margin-left: 5px; font-size: 12px; background-color:#EBEBEB;">
     <tr>
         <th> What? </th>
+         <th>Picture</th>
         <th> ID  </th>
         <th> Name </th>
         <th> Degree </th>
@@ -114,6 +115,7 @@ force.node.add(pv.Dot)
     </tr>
     <tr>
         <td> Most Important Person </td>
+        <td><img src="https://graph.facebook.com/{{ most_important[0] }}/picture"></img> </td>
         <td> {{ most_important[0] }} </td>
         <td> {{ most_important[1] }} </td>
         <td> {{ most_important[2] }}  </td>
@@ -121,6 +123,7 @@ force.node.add(pv.Dot)
     </tr>
       <tr>
         <td> Less Important Person </td>
+        <td><img src="https://graph.facebook.com/{{ smallest_node[0] }}/picture"></img> </td>
         <td> {{ smallest_node[0] }} </td>
         <td> {{ smallest_node[1] }} </td>
         <td> {{ smallest_node[2] }}  </td>

@@ -89,6 +89,7 @@ def find_smallest_and_largest_nodes_degree(g, number, sort):
 #A method to find the most "Important" node based on
 # the betweeness
 def find_imporant_node(g):
+    print "analyzing the most important node"
     node_and_degree=g.degree()
     (largest_node_id,degree)=sorted(node_and_degree.items(),key=itemgetter(1))[-1]
     dic = nx.betweenness_centrality(g)
@@ -102,11 +103,13 @@ def find_imporant_node(g):
             break
     result.append(degree)
     result.append(dic[largest_node_id])
+    print "done..."
     return result
 
 #A method to find the most "lessst imporant" node based on
 # the betweeness
 def find_smallest_node(g):
+    print "analyzing the smallest node"
     node_and_degree=g.degree()
     (smallest_node_id,degree)=sorted(node_and_degree.items(),key=itemgetter(1))[1]
     dic = nx.betweenness_centrality(g)
@@ -120,5 +123,6 @@ def find_smallest_node(g):
             break
     result.append(degree)
     result.append(dic[smallest_node_id])
+    print "done analysing"
     return result
 
