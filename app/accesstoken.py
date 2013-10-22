@@ -48,7 +48,7 @@ from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
 
 javascript_redirect = '''<script type="text/javascript">
 var url = window.location.href.toString()
-window.location = url.replace("#", "")
+window.location = url.replace("#", "?")
 </script>
 '''
 
