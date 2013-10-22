@@ -1,66 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-
       <meta charset="utf-8">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-
-
-
-</head>
-
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
 <body>
-
-<!-- header-wrap -->
-<div id="header-wrap">
     <header>
-        <h1> your facebook network VISUALIZED! </h1>
-
-        <hgroup>
-            <h1><a href="/">PageOne</a></h1>
-            <h3>Just Another Styleshout Template</h3>
-        </hgroup>
-
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                 <li><a href="about">About</a></li>
-
-
-            </ul>
-        </nav>
-
+        <div id="header-wrap">
+            <img src="{{ url_for('static', filename='images/facebook-logo-5.png') }}" id="header-icon"/><h1>acebook network analyzer</h1>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="/home.html">Home</a>
+                    </li>
+                    </li>
+                        <a href="/about.html">About</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </header>
-</div>
-
-<!-- content-wrap -->
-<div class="content-wrap">
-
-    <!-- main -->
-    <section id="main">
-
-    <div class="container">
-
-      {% block content %}
-      {% endblock %}
-
-    </div>
-
-
-
-
-
-      </section>
-
- </div>
-
-
-
-
-
-
-
-
-
-</body>
+    <div id="wrapper">
+        {% block content %}
+        {% endblock %}
+     </div>
+ </body>
 </html>

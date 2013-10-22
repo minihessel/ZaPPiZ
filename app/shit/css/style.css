@@ -28,7 +28,7 @@
 }
 
 body {
-    background-image: url('../images/bg.png');
+    background-image: url('images/bg.png');
     font-family: arial;
 }
 
@@ -36,7 +36,7 @@ header{
     width: 100%;
     border-bottom: 1px solid gray;
     height: 140px;
-    background-image: url('../images/header-bg-2.png');
+    background-image: url('images/header-bg-2.png');
     border-bottom: 4px solid white;
     margin-bottom: 20px;
     
@@ -115,14 +115,4 @@ input{
 
 input#btnStart {
     margin-left: 5px;
-}
-
-#funFacts {
-    width: 800px;
-    margin: 0 auto;
-}
-
-#graph{
-    background-color: #f6f6f6;
-    border: 2px solid white;
 }

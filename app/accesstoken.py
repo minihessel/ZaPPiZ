@@ -56,6 +56,11 @@ window.location = url.replace("#", "?")
 html = '''<html>
 <head>
 <title>%s</title>
+<style>
+    body [
+        background-image: url('static/images/bg.png');
+    }
+</style>
 </head>
 
 <body>
