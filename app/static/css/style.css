@@ -131,11 +131,3 @@ input#btnStart {
     background-color: #f6f6f6;
     border: 2px solid white;
 }
-
-table {
-    border: 1px solid gray;
-}
-
-td {
-    padding: 10px;
-}

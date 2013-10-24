@@ -1,8 +1,11 @@
 {% extends "layout.html" %}
 {% block content %}
+
+
 <script type="text/javascript" src ="../static/protovis.min.js"> </script>
-<script type="text/javascript" src="../static/facebookData/{{ f_id }}/{{ f_id }}.js"></script>
-<div id="wrapper">
+ <script type="text/javascript" src="../static/facebookData/{{ f_id }}/{{ f_id }}.js"></script>
+
+<div id="wrap">
     <!--- antall commnities, antall friends, biggest community -->
     <h2 style="color: #3a589b"> Your Facebook Network </h2>
     <p>Scroll down for more information about your facebook network, or hoover the mouse cursor over the
@@ -92,42 +95,43 @@
                 .event("mousedown", pv.Behavior.drag()) //dra-funskjonen, gjør det laggy
                 .event("drag", force); //same thing as above
 
-             vis.render();
-            </script>
+ vis.render();
+    </script>
+    </div>
         </div>
+    </div>
+    <!--- Hent litt morro info -->
+<div id="id="funFacts"">
+<h2 style="color: #3a589b;"> Fun facts about your facebook network </h2>
+<table border="1"  left; margin-left: 5px; font-size: 12px; background-color:#EBEBEB;">
+    <tr>
+        <th> What? </th>
+         <th>Picture</th>
+        <th> ID  </th>
+        <th> Name </th>
+        <th> Degree </th>
+        <th> Betweenes Centraility </th>
+    </tr>
+    <tr>
+        <td> Most Important Person </td>
+        <td><img src="https://graph.facebook.com/{{ most_important[0] }}/picture"></img> </td>
+        <td> {{ most_important[0] }} </td>
+        <td> {{ most_important[1] }} </td>
+        <td> {{ most_important[2] }}  </td>
+        <td> {{ most_important[3] }} </td>
+    </tr>
+      <tr>
+        <td> Less Important Person </td>
+        <td><img src="https://graph.facebook.com/{{ smallest_node[0] }}/picture"></img> </td>
+        <td> {{ smallest_node[0] }} </td>
+        <td> {{ smallest_node[1] }} </td>
+        <td> {{ smallest_node[2] }}  </td>
+        <td> {{ smallest_node[3] }} </td>
+    </tr>
+</table>
 </div>
-<!--- Hent litt morro info -->
-<div id="funFacts">
-    <h2 style="color: #3a589b;"> Fun facts about your facebook network </h2>
-    <table style="font-size: 12px; background-color:#EBEBEB;">
-        <tr>
-            <th> What? </th>
-            <th>Picture</th>
-            <th> ID  </th>
-            <th> Name </th>
-            <th> Degree </th>
-            <th> Betweenes Centraility </th>
-        </tr>
-        <tr>
-            <td> Most Important Person </td>
-            <td><img src="https://graph.facebook.com/{{ most_important[0] }}/picture"></img> </td>
-            <td> {{ most_important[0] }} </td>
-            <td> {{ most_important[1] }} </td>
-            <td> {{ most_important[2] }}  </td>
-            <td> {{ most_important[3] }} </td>
-        </tr>
-          <tr>
-            <td> Less Important Person </td>
-            <td><img src="https://graph.facebook.com/{{ smallest_node[0] }}/picture"></img> </td>
-            <td> {{ smallest_node[0] }} </td>
-            <td> {{ smallest_node[1] }} </td>
-            <td> {{ smallest_node[2] }}  </td>
-            <td> {{ smallest_node[3] }} </td>
-        </tr>
-    </table>
-</div>
-<div id="communities">
-    <p>Number of communities: {{ communities + 1 }}</p>
+<p style="font-size: 16px;">Number of communities: {{ communities + 1 }}</p>
+
     <!--- Skrive ut alle communtiteis --->
     <h2>Communities </h2>
     <p> Click on a friend to go directly to their facebook page.</p>
