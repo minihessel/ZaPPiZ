@@ -1,21 +1,26 @@
 {% extends "layout.html" %}
 {% block content %}
- <h2 id="headLinestart">Visualize your ego<h2>
-<p>Welcome, visualize your network by logging in to facebook.</p>
-<script>
-   function setVisible() {
-       document.getElementById( 'loading' ).style.display = "block";
-       document.getElementById( 'btnStart' ).style.display = "none";
-       document.getElementById( 'headLinestart').style.display = "none";
-   }
-</script>
-<form method="POST" action="/graph" onclick="setVisible()">
-     <input type="submit" value="Start" name="btnStart" id="btnStart">
-</form>
-<div id="loading">
-     <img src="{{ url_for('static', filename='images/dog.gif') }}" id="dogLoader"> </img>
-    <br>
-    <br>
-    <i> Our dog is fetching your friends from FaceBook. Please be patient, this usually takes some seconds!</i>
-</div>
+ <div id="wrapper">
+    <script>
+       function setVisible() {
+           document.getElementById( 'btnStart' ).style.display = "none";
+           document.getElementById( 'headLinestart').style.display = "none";
+           document.getElementById( 'welcome').style.display = "none";
+           document.getElementById( 'loading' ).style.display = "block";
+           document.getElementById( 'dogLoader' ).style.display = "block";
+           document.getElementById( 'dogLoader' ).marginLeft = "100px";
+       }
+    </script>
+     <h2 id="headLinestart">Visualize your ego</h2>
+    <p id="welcome">Welcome, visualize your network by logging in to facebook.</p>
+    <form method="POST" action="/graph" onclick="setVisible()">
+         <input type="submit" value="Start" name="btnStart" id="btnStart">
+    </form>
+    <div id="loading">
+         <img src="{{ url_for('static', filename='images/dog.gif') }}" id="dogLoader"> </img>
+        <br>
+        <br>
+        <i> Our dog is fetching your friends from FaceBook. Please be patient, this usually takes some seconds!</i>
+    </div>
+ </div>
 {% endblock %}

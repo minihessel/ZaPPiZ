@@ -67,7 +67,7 @@ h2 {
 }
 
 p {
-    font-size: 16px;
+    font-size: 18px;
     padding-top: 5px;
     color: #3f3f3f;
 }
@@ -102,6 +102,10 @@ nav a:hover {
     display: none;
 }
 
+#dogLoader img {
+    padding-left: 200px;
+}
+
 
 #loading{
     display: none;
@@ -120,9 +124,18 @@ input#btnStart {
 #funFacts {
     width: 800px;
     margin: 0 auto;
+    font-size: 100px;
 }
 
 #graph{
     background-color: #f6f6f6;
     border: 2px solid white;
+}
+
+table {
+    border: 1px solid gray;
+}
+
+td {
+    padding: 10px;
 }
