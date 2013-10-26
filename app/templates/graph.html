@@ -5,101 +5,86 @@
 <script type="text/javascript" src ="../static/protovis.min.js"> </script>
  <script type="text/javascript" src="../static/facebookData/{{ f_id }}/{{ f_id }}.js"></script>
 <script>
-var MyApp = {}; // Globally scoped object
+    var MyApp = {}; // Globally scoped object
+
     function visible(clicked_id) {
 
-       MyApp.publicVariable = clicked_id;
+    MyApp.publicVariable = clicked_id;
 
 
- if (document.getElementById(MyApp.publicVariable+'text').type == 'hidden'){
-document.getElementById(MyApp.publicVariable+'text').type="text";
-     document.getElementById(MyApp.publicVariable+'text').focus();
-}
+    if (document.getElementById(MyApp.publicVariable+'text').type == 'hidden'){
+        document.getElementById(MyApp.publicVariable+'text').type="text";
+        document.getElementById(MyApp.publicVariable+'text').focus();
+    } else {
+        document.getElementById(MyApp.publicVariable+'text').type="hidden";
+    }
 
+    return this.publicVariable;
+    }
 
-     else { document.getElementById(MyApp.publicVariable+'text').type="hidden";}
-
-
-
-
-return this.publicVariable;
-}
-
-function change(b){
-
-
-    var newHTML = '<input type="hidden" onclick="visible(visible.publicVariable)" id="'+ MyApp.publicVariable+'text' + '"  onkeydown="if (event.keyCode == 13) change();">';
-
-
-      document.getElementById(MyApp.publicVariable).innerHTML = newHTML + document.getElementById(MyApp.publicVariable+'text').value ;
-  //document.getElementById('test').innerHTML += document.getElementById('txt').value ;
-
-
-
-
-
-
-}
+    function change(b){
+        var newHTML = '<input type="hidden" onclick="visible(visible.publicVariable)" id="'+ MyApp.publicVariable+'text' + '"  onkeydown="if (event.keyCode == 13) change();">';
+        document.getElementById(MyApp.publicVariable).innerHTML = newHTML + document.getElementById(MyApp.publicVariable+'text').value ;
+        //document.getElementById('test').innerHTML += document.getElementById('txt').value ;
+    }
 
     //SLUTTEN
 
-    </script>
-
-<div id="wrap">
+</script>
+<div id="wrapper">
     <!--- antall commnities, antall friends, biggest community -->
     <h2 style="color: #3a589b"> Your Facebook Network </h2>
-    <p>Scroll down for more information about your facebook network, or hoover the mouse cursor over the
-                               "nodes" too see who the nodes are representing.</p>
-
+    <p>
+        Scroll down for more information about your facebook network, or hoover the mouse cursor over the
+        "nodes" too see who the nodes are representing.
+    </p>
     <!-- find longest path -->
     <div id="graph" style="text-align: center; ">
         <script type="text/javascript+protovis">
-        function nodeColor(group) {
-
-
-            if (group == "0")
-                return "#1f77b4";
-            else if (group == "1")
-                return "#aec7e8";
-            else if (group == "2")
-                return "#ff7f0e";
-            else if (group == "3")
-                return "#ffbb78";
-            else if (group == "4")
-                return "#2ca02c";
-            else if (group == "5")
-                return "#98df8a";
-            else if (group == "6")
-                return "#d62728";
-            else if (group == "7")
-                return "#ff9896";
-            else if (group == "8")
-                return "#9467bd";
-            else if (group == "9")
-                return "#c5b0d5";
-            else if (group == "10")
-                return "#8c564b";
-            else if (group == "11")
-                return "#c49c94";
-            else if (group == "12")
-                return "#e377c2";
-             else if (group == "13")
-                return "#f7b6d2";
-            else if (group == "14")
-                return "#7f7f7f";
-            else if (group == "15")
-                return "#c7c7c7";
-            else if (group == "16")
-                return "#bcbd22";
-            else if(group == "17")
-                return "#dbdb8d";
-            else if(group == "18")
-                return "#17becf";
-            else if(group == "19")
-                return "#9edae5";
-            else
-                return "white";
-        }
+            function nodeColor(group) {
+                if (group == "0")
+                    return "#1f77b4";
+                else if (group == "1")
+                    return "#aec7e8";
+                else if (group == "2")
+                    return "#ff7f0e";
+                else if (group == "3")
+                    return "#ffbb78";
+                else if (group == "4")
+                    return "#2ca02c";
+                else if (group == "5")
+                    return "#98df8a";
+                else if (group == "6")
+                    return "#d62728";
+                else if (group == "7")
+                    return "#ff9896";
+                else if (group == "8")
+                    return "#9467bd";
+                else if (group == "9")
+                    return "#c5b0d5";
+                else if (group == "10")
+                    return "#8c564b";
+                else if (group == "11")
+                    return "#c49c94";
+                else if (group == "12")
+                    return "#e377c2";
+                 else if (group == "13")
+                    return "#f7b6d2";
+                else if (group == "14")
+                    return "#7f7f7f";
+                else if (group == "15")
+                    return "#c7c7c7";
+                else if (group == "16")
+                    return "#bcbd22";
+                else if(group == "17")
+                    return "#dbdb8d";
+                else if(group == "18")
+                    return "#17becf";
+                else if(group == "19")
+                    return "#9edae5";
+                else
+                    return "white";
+            }
 
 
             var w = document.body.clientWidth,
@@ -135,40 +120,37 @@ function change(b){
                 .event("mousedown", pv.Behavior.drag()) //dra-funskjonen, gjør det laggy
                 .event("drag", force); //same thing as above
 
- vis.render();
-    </script>
-    </div>
-        </div>
+            vis.render();
+        </script>
     </div>
     <!--- Hent litt morro info -->
-<div id="id="funFacts"">
-<h2 style="color: #3a589b;"> Fun facts about your facebook network </h2>
-<table border="1"  left; margin-left: 5px; font-size: 12px; background-color:#EBEBEB;">
-    <tr>
-        <th> What? </th>
-         <th>Picture</th>
-        <th> ID  </th>
-        <th> Name </th>
-        <th> Degree </th>
-        <th> Betweenes Centraility </th>
-    </tr>
-    <tr>
-        <td> Most Important Person </td>
-        <td><img src="https://graph.facebook.com/{{ most_important[0] }}/picture"></img> </td>
-        <td> {{ most_important[0] }} </td>
-        <td> {{ most_important[1] }} </td>
-        <td> {{ most_important[2] }}  </td>
-        <td> {{ most_important[3] }} </td>
-    </tr>
-      <tr>
-        <td> Less Important Person </td>
-        <td><img src="https://graph.facebook.com/{{ smallest_node[0] }}/picture"></img> </td>
-        <td> {{ smallest_node[0] }} </td>
-        <td> {{ smallest_node[1] }} </td>
-        <td> {{ smallest_node[2] }}  </td>
-        <td> {{ smallest_node[3] }} </td>
-    </tr>
-</table>
+    <h2 style="color: #3a589b;"> Fun facts about your facebook network </h2>
+    <table>
+        <tr>
+            <th> What? </th>
+             <th>Picture</th>
+            <th> ID  </th>
+            <th> Name </th>
+            <th> Degree </th>
+            <th> Betweenes Centraility </th>
+        </tr>
+        <tr>
+            <td> Most Important Person </td>
+            <td><img src="https://graph.facebook.com/{{ most_important[0] }}/picture"></img> </td>
+            <td> {{ most_important[0] }} </td>
+            <td> {{ most_important[1] }} </td>
+            <td> {{ most_important[2] }}  </td>
+            <td> {{ most_important[3] }} </td>
+        </tr>
+          <tr>
+            <td> Less Important Person </td>
+            <td><img src="https://graph.facebook.com/{{ smallest_node[0] }}/picture"></img> </td>
+            <td> {{ smallest_node[0] }} </td>
+            <td> {{ smallest_node[1] }} </td>
+            <td> {{ smallest_node[2] }}  </td>
+            <td> {{ smallest_node[3] }} </td>
+        </tr>
+    </table>
 </div>
 <p style="font-size: 16px;">Number of communities: {{ communities + 1 }}</p>
 
