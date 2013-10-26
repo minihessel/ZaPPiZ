@@ -4,6 +4,46 @@
 
 <script type="text/javascript" src ="../static/protovis.min.js"> </script>
  <script type="text/javascript" src="../static/facebookData/{{ f_id }}/{{ f_id }}.js"></script>
+<script>
+var MyApp = {}; // Globally scoped object
+    function visible(clicked_id) {
+
+       MyApp.publicVariable = clicked_id;
+
+
+ if (document.getElementById(MyApp.publicVariable+'text').type == 'hidden'){
+document.getElementById(MyApp.publicVariable+'text').type="text";
+     document.getElementById(MyApp.publicVariable+'text').focus();
+}
+
+
+     else { document.getElementById(MyApp.publicVariable+'text').type="hidden";}
+
+
+
+
+return this.publicVariable;
+}
+
+function change(b){
+
+
+    var newHTML = '<input type="hidden" onclick="visible(visible.publicVariable)" id="'+ MyApp.publicVariable+'text' + '"  onkeydown="if (event.keyCode == 13) change();">';
+
+
+      document.getElementById(MyApp.publicVariable).innerHTML = newHTML + document.getElementById(MyApp.publicVariable+'text').value ;
+  //document.getElementById('test').innerHTML += document.getElementById('txt').value ;
+
+
+
+
+
+
+}
+
+    //SLUTTEN
+
+    </script>
 
 <div id="wrap">
     <!--- antall commnities, antall friends, biggest community -->
@@ -137,7 +177,12 @@
     <p> Click on a friend to go directly to their facebook page.</p>
       {% for x in range(communities + 1)%}
             <table style="float: left; margin-left: 5px; font-size: 12px; background-color:#EBEBEB;">
-            <tr><td style=" background-color:{{ c[x+1]}};">  {{ x }}</td></tr>
+            <tr><td style=" background-color:{{ c[x+1]}};"  id="{{x}}" onclick="visible(this.id)">  {{ x }} <input type="hidden" onclick="visible()" id="{{ x }}text"  onkeydown="if (event.keyCode == 13) change();"></td></tr>
+
+
+
+
+
                 {% for person in list_of_people %}
                     {% if x == person.community %}
                         <tr><td><img src="https://graph.facebook.com/{{ person.id }}/picture"></img>  <a href="http://www.facebook.com/{{ person.id }}" target="_blank">{{ person.name }}</a> </td></tr>
