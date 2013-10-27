@@ -21,7 +21,7 @@ def home():
 
     return render_template('/home.html')
 
-
+#tester litt
 
 #Renders the about page
 @app.route('/about')
