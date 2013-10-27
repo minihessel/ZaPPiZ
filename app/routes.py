@@ -22,7 +22,7 @@ def home():
     return render_template('/home.html')
 
 
-    print" dette er en test"
+    print" dette er en t2121est"
 
 #Renders the about page
 @app.route('/about')
