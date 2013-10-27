@@ -8,6 +8,7 @@ app = Flask(__name__)
 
 
 
+
 #Routing method for the home page.
 ######### PARAMS ##########
 # g = the id of an user
@@ -20,6 +21,8 @@ def home():
 
     return render_template('/home.html')
 
+
+    print" dette er en test"
 
 #Renders the about page
 @app.route('/about')
