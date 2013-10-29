@@ -98,8 +98,10 @@ def find_imporant_node(g):
         for person in fb.list_of_people:
             if "friend" + str(person.id) == current_person_id:
                 person.id = person.id.replace('friend', '')
+                print smallest_nodes
                 person.degree = smallest_nodes[index][1]
-                betweeness_cent = (len(person.degree) / len(g))
+                print person.degree
+                betweeness_cent = (int(person.degree) / len(g))
                 person.degree_betweness_centrality = betweeness_cent
                 result.append(person)
                 break
@@ -118,8 +120,11 @@ def find_smallest_node(g):
         for person in fb.list_of_people:
             if "friend" + str(person.id) == current_person_id:
                 person.id = person.id.replace('friend', '')
-                person.degree = smallest_nodes[index][0][1]
-                betweeness_cent = (len(person.degree) / len(g))
+                print smallest_nodes
+                person.degree = smallest_nodes[index][1]
+                print person.degree
+
+                betweeness_cent = (int(person.degree) / len(g))
                 person.degree_betweness_centrality = betweeness_cent
                 result.append(person)
                 break
