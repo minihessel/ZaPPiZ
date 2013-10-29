@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
+from __future__ import division
 
 import networkx as nx
-
 from os import path
 import community as com
 import fb_friend_graph as fb
@@ -89,40 +89,42 @@ def find_smallest_and_largest_nodes_degree(g, number, sort):
 #A method to find the most "Important" node based on
 # the betweeness
 def find_imporant_node(g):
-    print "analyzing the most important node"
-    node_and_degree=g.degree()
-    (largest_node_id,degree)=sorted(node_and_degree.items(),key=itemgetter(1))[-1]
-    dic = nx.betweenness_centrality(g)
-    top_node = find_smallest_and_largest_nodes_degree(g, 1, "largest")
-    #result contains, id, name, degree, betweeness
+    print "analyzing smallest top 5 nodes"
+    smallest_nodes = find_smallest_and_largest_nodes_degree(g, 5, "largest")
     result = []
-    for person in fb.list_of_people:
-        if "friend" + str(person.id) == largest_node_id:
-            result.append(person.id)
-            result.append(person.name)
-            break
-    result.append(degree)
-    result.append(dic[largest_node_id])
-    print "done..."
+    index = 0
+    while index < len(smallest_nodes):
+        current_person_id = smallest_nodes[index][0]
+        for person in fb.list_of_people:
+            if "friend" + str(person.id) == current_person_id:
+                person.id = person.id.replace('friend', '')
+                person.degree = smallest_nodes[index][1]
+                betweeness_cent = (len(person.degree) / len(g))
+                person.degree_betweness_centrality = betweeness_cent
+                result.append(person)
+                break
+        index += 1
+    print "analyzing smallest top 5 DONE"
+
     return result
 
-#A method to find the most "lessst imporant" node based on
-# the betweeness
 def find_smallest_node(g):
-    print "analyzing the smallest node"
-    node_and_degree=g.degree()
-    (smallest_node_id,degree)=sorted(node_and_degree.items(),key=itemgetter(1))[1]
-    dic = nx.betweenness_centrality(g)
-    top_node = find_smallest_and_largest_nodes_degree(g, 1, "smallest")
-    #result contains, id, name, degree, betweeness
+    print "analyzing smallest 5 nodes"
+    smallest_nodes = find_smallest_and_largest_nodes_degree(g, 5, "smallest")
     result = []
-    for person in fb.list_of_people:
-        if "friend" + str(person.id) == smallest_node_id:
-            result.append(person.id)
-            result.append(person.name)
-            break
-    result.append(degree)
-    result.append(dic[smallest_node_id])
-    print "done analysing"
+    index = 0
+    while index < len(smallest_nodes):
+        current_person_id = smallest_nodes[index][0]
+        for person in fb.list_of_people:
+            if "friend" + str(person.id) == current_person_id:
+                person.id = person.id.replace('friend', '')
+                person.degree = smallest_nodes[index][0][1]
+                betweeness_cent = (len(person.degree) / len(g))
+                person.degree_betweness_centrality = betweeness_cent
+                result.append(person)
+                break
+        index += 1
+    print "analyzing smallest 5 DONE"
+
     return result
 

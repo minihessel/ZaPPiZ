@@ -31,7 +31,7 @@ def about():
 #Renders the test page
 # g = id
 @app.route('/graph',methods=['get', 'POST'])
-def test(f_id = None, list_of_people = [], communities = None, c = None, most_important = None, smallest_node = None , test = None):
+def test(f_id = None, list_of_people = [], communities = None, c = None, most_important = [], smallest_node = [] , test = None):
     if request.method == 'POST':
 
         if request.form['btnStart'] !=None:

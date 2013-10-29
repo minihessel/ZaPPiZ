@@ -64,6 +64,9 @@ class Person(object):
         self.id = id
         self.name = name
         community = None
+        degree = None
+        degree_betweness_centrality = None
+
 
 list_of_people = []
 

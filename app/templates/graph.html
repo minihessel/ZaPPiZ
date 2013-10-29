@@ -135,21 +135,33 @@
             <th> Betweenes Centraility </th>
         </tr>
         <tr>
-            <td> Most Important Person </td>
-            <td><img src="https://graph.facebook.com/{{ most_important[0] }}/picture"></img> </td>
-            <td> {{ most_important[0] }} </td>
-            <td> {{ most_important[1] }} </td>
-            <td> {{ most_important[2] }}  </td>
-            <td> {{ most_important[3] }} </td>
+
+
         </tr>
-          <tr>
-            <td> Less Important Person </td>
-            <td><img src="https://graph.facebook.com/{{ smallest_node[0] }}/picture"></img> </td>
-            <td> {{ smallest_node[0] }} </td>
-            <td> {{ smallest_node[1] }} </td>
-            <td> {{ smallest_node[2] }}  </td>
-            <td> {{ smallest_node[3] }} </td>
+
+            {% for p in most_important %}
+            <tr>
+            <td> Top 5 Most Important Persons </td>
+            <td><img src="https://graph.facebook.com/{{ p.id }}/picture"></img> </td>
+            <td>  {{ p.id }}  </td>
+            <td> {{ p.name }} </td>
+            <td> {{ p.degree }}  </td>
+            <td> {{ p.degree_betweness_centrality }} </td>
+            </tr>
+           {% endfor %}
         </tr>
+
+
+            {% for p in smallest_node %}
+            <tr>
+            <td> Bottom 5 Important Persons </td>
+            <td><img src="https://graph.facebook.com/{{ p.id }}/picture"></img> </td>
+            <td>  {{ p.id }}  </td>
+            <td> {{ p.name }} </td>
+            <td> {{ p.degree }}  </td>
+            <td> {{ p.degree_betweness_centrality }} </td>
+            </tr>
+           {% endfor %}
     </table>
 </div>
 <p style="font-size: 16px;">Number of communities: {{ communities + 1 }}</p>
