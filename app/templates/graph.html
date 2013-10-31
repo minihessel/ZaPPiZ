@@ -124,42 +124,61 @@
         </script>
     </div>
     <!--- Hent litt morro info -->
+<br/><br/>
     <h2 style="color: #3a589b;"> Fun facts about your facebook network </h2>
+    <br/><br/><br/>
     <table>
         <tr>
-            <th> What? </th>
-             <th>Picture</th>
-            <th> ID  </th>
-            <th> Name </th>
-            <th> Degree </th>
-            <th> Betweenes Centraility </th>
+            <th style="text-align: left;">Picture</th>
+            <th style="text-align: left;"> ID  </th>
+            <th style="text-align: left;"> Name </th>
+            <th style="text-align: left;"> Degree </th>
+            <th style="text-align: left;"> Betweenes Centraility </th>
         </tr>
         <tr>
+            <br/>
+        <h2 style="text-align:center;"> 5 most important friends </h2>
+        <p>________________________________________________________________________________________________</p>
 
 
+        <br/>
         </tr>
 
             {% for p in most_important %}
             <tr>
-            <td> Top 5 Most Important Persons </td>
-            <td><img src="https://graph.facebook.com/{{ p.id }}/picture"></img> </td>
-            <td>  {{ p.id }}  </td>
-            <td> {{ p.name }} </td>
-            <td> {{ p.degree }}  </td>
-            <td> {{ p.degree_betweness_centrality }} </td>
+            <td width="200px" ><img src="https://graph.facebook.com/{{ p.id }}/picture"></img> </td>
+            <td width="200px">  {{ p.id }}  </td>
+            <td width="200px"> {{ p.name }} </td>
+            <td width="200px"> {{ p.degree }}  </td>
+            <td width="200px"> {{ p.degree_betweness_centrality }} </td>
             </tr>
            {% endfor %}
-        </tr>
 
+        </tr>
+    </table>
+
+    <br/>
+    <h2 style="text-align:center;"> 5 least important friends </h2>
+     <p>________________________________________________________________________________________________</p>
+
+    <br/>
+    <table>
+         <tr>
+            <th style="text-align: left;">Picture</th>
+            <th style="text-align: left;"> ID  </th>
+            <th style="text-align: left;"> Name </th>
+            <th style="text-align: left;"> Degree </th>
+            <th style="text-align: left;"> Betweenes Centraility </th>
+        </tr>
+        <tr>
 
             {% for p in smallest_node %}
             <tr>
-            <td> Bottom 5 Important Persons </td>
-            <td><img src="https://graph.facebook.com/{{ p.id }}/picture"></img> </td>
-            <td>  {{ p.id }}  </td>
-            <td> {{ p.name }} </td>
-            <td> {{ p.degree }}  </td>
-            <td> {{ p.degree_betweness_centrality }} </td>
+            <td width="200px"><img src="https://graph.facebook.com/{{ p.id }}/picture"></img> </td>
+            <td width="200px">  {{ p.id }}  </td>
+            <td width="200px"> {{ p.name }} </td>
+            <td width="200px"> {{ p.degree }}  </td>
+            <td width="200px"> {{ p.degree_betweness_centrality }} </td>
             </tr>
            {% endfor %}
     </table>

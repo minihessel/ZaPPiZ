@@ -86,7 +86,7 @@ def find_smallest_and_largest_nodes_degree(g, number, sort):
         result_list =sorted(g.degree_iter(),key=itemgetter(1))[0:number]
     return result_list
 
-#A method to find the most "Important" node based on
+#A method to find the 5 most "Important" node based on
 # the betweeness
 def find_imporant_node(g):
     print "analyzing smallest top 5 nodes"
@@ -98,9 +98,7 @@ def find_imporant_node(g):
         for person in fb.list_of_people:
             if "friend" + str(person.id) == current_person_id:
                 person.id = person.id.replace('friend', '')
-                print smallest_nodes
                 person.degree = smallest_nodes[index][1]
-                print person.degree
                 betweeness_cent = (int(person.degree) / len(g))
                 person.degree_betweness_centrality = betweeness_cent
                 result.append(person)
@@ -110,6 +108,8 @@ def find_imporant_node(g):
 
     return result
 
+
+# finding the five smallestn nodes
 def find_smallest_node(g):
     print "analyzing smallest 5 nodes"
     smallest_nodes = find_smallest_and_largest_nodes_degree(g, 5, "smallest")
@@ -120,10 +120,7 @@ def find_smallest_node(g):
         for person in fb.list_of_people:
             if "friend" + str(person.id) == current_person_id:
                 person.id = person.id.replace('friend', '')
-                print smallest_nodes
                 person.degree = smallest_nodes[index][1]
-                print person.degree
-
                 betweeness_cent = (int(person.degree) / len(g))
                 person.degree_betweness_centrality = betweeness_cent
                 result.append(person)
