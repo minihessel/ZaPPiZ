@@ -40,7 +40,7 @@ def convert_gml_to_js(id):
     #appending nodes
     i = 0
     for node in g.nodes():
-        sameas['nodes'].append({'nodeName': node, 'group': int(g.node[node].__getitem__('community') + 1),'name': g.node[node].__getitem__('name').encode('ISO-8859-1') })
+        sameas['nodes'].append({'nodeName': node, 'group': int(g.node[node].__getitem__('community') + 1),'name': g.node[node].__getitem__('name').encode('ISO-8859-1','ignore')})
         node_ids[node] = i                                                                                              #use encode to be able to use ÆØÅ
         i += 1
 
