@@ -131,3 +131,11 @@ input#btnStart {
     background-color: #f6f6f6;
     border: 2px solid white;
 }
+
+.ui-tooltip
+{
+    background-color: gray;
+    border: 1px solid blue;
+    padding: 10px;
+    box-shadow: 4px 4px 4px #979796;
+}
