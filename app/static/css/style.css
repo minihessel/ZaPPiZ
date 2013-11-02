@@ -148,6 +148,15 @@ table tr th {
     padding-bottom: 6px;
 }
 
+fieldset {
+    width: 100%;
+
+}
+
+fieldset div {
+    float: right;
+}
+
 a:link {color:black; text-decoration:none;}    /* unvisited link */
 a:visited {color:black; text-decoration:none;}  /* visited link */
 a:hover {color:black; text-decoration:none;}    /* mouse over link */
