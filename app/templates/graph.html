@@ -138,7 +138,7 @@
         </tr>
         <tr>
             <br/>
-        <h2 style="text-align:center;" title="What is actually 5 most important friends?<b> That is a good question!</b>"> 5 most important friends </h2>
+        <h2 style="text-align:center;" title="These are your 5 most important friends"> 5 most important friends </h2>
         <p>________________________________________________________________________________________________</p>
 
 
@@ -184,38 +184,20 @@
            {% endfor %}
     </table>
 </div>
-<p style="font-size: 16px;">Number of communities: {{ communities + 1 }}</p>
-     {% for x in range(communities + 1)%}
-        <fieldset title="These are the communites. You can change the colum-name by clicking on the column.">
-            <legend style=" background-color:{{ c[x+1]}};"  id="{{x}}" onclick="visible(this.id)">{{ x }}<input type="hidden" onclick="visible()" id="{{ x }}text"  onkeydown="if (event.keyCode == 13) change();"></legend>
-            <th >
-
-             <!--<table style="float: left; margin-left: 5px; font-size: 12px; background-color:#EBEBEB;" >-->
-               <tr>
-                {% for person in list_of_people %}
-                    {% if x == person.community %}
-                        <div><img src="https://graph.facebook.com/{{ person.id }}/picture"></img>  <a href="http://www.facebook.com/{{ person.id }}" target="_blank">{{ person.name }}</a> </div>
-
-                    {% endif %}
-
-                {% endfor %}
-                <tr>
-            <!-- </table> -->
-        </fieldset>
-      {% endfor %}
-
-
-
-v
-
-    <!--- Skrive ut alle communtiteis --->
+<p style="font-size: 16px;" title="Tittelher.asdasd!">Number of communities: {{ communities + 1 }}</p>
+      <!--- Skrive ut alle communtiteis --->
     <h2>Communities </h2>
     <p> Click on a friend to go directly to their facebook page.</p>
       {% for x in range(communities + 1)%}
-            <ul style="float: left; margin-left: 5px; font-size: 12px; background-color:#EBEBEB;" title="These are the communites. You can change the colum-name by clicking on the column.">
-            <div  style=" background-color:{{ c[x+1]}}; display: inline;"  id="{{x}}" onclick="visible(this.id)">  {{ x }} <input type="hidden" onclick="visible()" id="{{ x }}text"  onkeydown="if (event.keyCode == 13) change();"></div>
-
-          </ul>
+            <table style="float: left; margin-left: 5px; font-size: 12px; background-color:#EBEBEB;" title="These are the communites. You can change the colum-name by clicking on the column.">
+            <tr><th style=" background-color:{{ c[x+1]}};"  id="{{x}}" onclick="visible(this.id)">  {{ x }} <input type="hidden" onclick="visible()" id="{{ x }}text"  onkeydown="if (event.keyCode == 13) change();"></th></tr>
+                {% for person in list_of_people %}
+                    {% if x == person.community %}
+                        <tr><td><img src="https://graph.facebook.com/{{ person.id }}/picture"></img>  <a href="http://www.facebook.com/{{ person.id }}" target="_blank">{{ person.name }}</a> </td></tr>
+                </tr>
+            {% endif %}
+        {% endfor %}
+          </table>
       {% endfor %}
 </div>
 {% endblock %}

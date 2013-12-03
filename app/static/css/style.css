@@ -148,6 +148,10 @@ table tr th {
     padding-bottom: 6px;
 }
 
+tr{
+    border: 1px solid black;
+}
+
 fieldset {
     width: 100%;
 
@@ -161,3 +165,12 @@ a:link {color:black; text-decoration:none;}    /* unvisited link */
 a:visited {color:black; text-decoration:none;}  /* visited link */
 a:hover {color:black; text-decoration:none;}    /* mouse over link */
 a:active {color:black; text-decoration:none;}   /* selected link */
+
+.community-list{
+    list-style-type: none;
+}
+
+.community-list-person {
+    width: 70px;
+    float: left;
+}
