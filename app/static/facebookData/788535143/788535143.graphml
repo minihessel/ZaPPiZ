@@ -123,7 +123,7 @@ http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
 <node id="friend643305720"><data key="name">Tord Bjørnevik</data></node>
 <node id="friend646295483"><data key="name">Martin Gabrielsen</data></node>
 <node id="friend648555131"><data key="name">Ole Kristian Myren</data></node>
-<node id="friend649631240"><data key="name">Njål Dolonen</data></node>
+<node id="friend649631240"><data key="name">Njål Karma Dolonen</data></node>
 <node id="friend650595067"><data key="name">Maria Øren</data></node>
 <node id="friend653075717"><data key="name">Mark Tonkin</data></node>
 <node id="friend653321350"><data key="name">Suzanne Wikan</data></node>
@@ -3155,7 +3155,6 @@ http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
 <edge id="edge899350622->599005950" source="friend899350622" target="friend599005950" />
 <edge id="edge899350622->604630972" source="friend899350622" target="friend604630972" />
 <edge id="edge899350622->606345972" source="friend899350622" target="friend606345972" />
-<edge id="edge899350622->608681926" source="friend899350622" target="friend608681926" />
 <edge id="edge899350622->609662230" source="friend899350622" target="friend609662230" />
 <edge id="edge899350622->618165491" source="friend899350622" target="friend618165491" />
 <edge id="edge899350622->620040775" source="friend899350622" target="friend620040775" />
@@ -4247,7 +4246,6 @@ http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
 <edge id="edge608681926->832685642" source="friend608681926" target="friend832685642" />
 <edge id="edge608681926->850170163" source="friend608681926" target="friend850170163" />
 <edge id="edge608681926->868825354" source="friend608681926" target="friend868825354" />
-<edge id="edge608681926->899350622" source="friend608681926" target="friend899350622" />
 <!-- Marius Andersen -->
 <edge id="edge528431979->527560305" source="friend528431979" target="friend527560305" />
 <edge id="edge528431979->540646236" source="friend528431979" target="friend540646236" />
@@ -4269,7 +4267,7 @@ http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
 <edge id="edge522461012->628361069" source="friend522461012" target="friend628361069" />
 <edge id="edge522461012->683610617" source="friend522461012" target="friend683610617" />
 <edge id="edge522461012->1022410547" source="friend522461012" target="friend1022410547" />
-<!-- Njål Dolonen -->
+<!-- Njål Karma Dolonen -->
 <edge id="edge649631240->540242442" source="friend649631240" target="friend540242442" />
 <edge id="edge649631240->546010046" source="friend649631240" target="friend546010046" />
 <edge id="edge649631240->546586530" source="friend649631240" target="friend546586530" />
