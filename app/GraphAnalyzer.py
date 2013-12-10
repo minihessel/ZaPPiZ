@@ -99,7 +99,7 @@ def find_imporant_node(g):
             if "friend" + str(person.id) == current_person_id:
                 person.id = person.id.replace('friend', '')
                 person.degree = smallest_nodes[index][1]
-                betweeness_cent = (int(person.degree) / len(g))
+                betweeness_cent = (int(person.degree) / ((len(g) - 1)))
                 person.degree_betweness_centrality = betweeness_cent
                 result.append(person)
                 break
@@ -121,7 +121,7 @@ def find_smallest_node(g):
             if "friend" + str(person.id) == current_person_id:
                 person.id = person.id.replace('friend', '')
                 person.degree = smallest_nodes[index][1]
-                betweeness_cent = (int(person.degree) / len(g))
+                betweeness_cent = (int(person.degree) / (len(g) - 1))
                 person.degree_betweness_centrality = betweeness_cent
                 result.append(person)
                 break
@@ -130,3 +130,5 @@ def find_smallest_node(g):
 
     return result
 
+def density(g):
+    return nx.density(g)

@@ -93,9 +93,14 @@
                 colors = pv.Colors.category19();
 
             var vis = new pv.Panel()
-                .width(500)
-                .height(500)
+            .width(1000)
+            .height(1000)
+            .fillStyle("rgba(0,0,0,.001)")
+
+	        .top(-500)
+	        .left(-500)
                 .event("mousedown", pv.Behavior.pan()) //dra funksjonen denne og, aktiveres for mer gøy
+
                 .event("mousewheel", pv.Behavior.zoom());
 
             var force = vis.add(pv.Layout.Force)
@@ -108,7 +113,7 @@
                 .chargeConstant(-40)
                 .dragConstant(1)
                 .springDamping(0.05)
-                .bound(true);
+
 
             force.link.add(pv.Line);
 
@@ -120,13 +125,15 @@
                 .title(function(d) d.name)
                 .event("mousedown", pv.Behavior.drag()) //dra-funskjonen, gjør det laggy
                 .event("drag", force); //same thing as above
-
+            vis.transform(pv.Transform.identity.scale(1.5));
             vis.render();
+
         </script>
     </div>
     <!--- Hent litt morro info -->
 <br/><br/>
     <h2 style="color: #3a589b;" title="Here you have an overview of your most and least important friends."> Fun facts about your facebook network </h2>
+    <p id="density" title="The density is to check how dense a graph is"> Density of the graph is: {{ density }}</p>
     <br/><br/><br/>
     <table>
         <tr>
@@ -134,7 +141,7 @@
             <th style="text-align: left;"> ID  </th>
             <th style="text-align: left;"> Name </th>
             <th style="text-align: left;"> Mutual Friends </th>
-            <th style="text-align: left;"> Betweenes Centraility </th>
+            <th style="text-align: left;"> Degree Centrality </th>
         </tr>
         <tr>
             <br/>
@@ -169,7 +176,7 @@
             <th style="text-align: left;"> ID  </th>
             <th style="text-align: left;"> Name </th>
             <th style="text-align: left;"> Mutual Friends </th>
-            <th style="text-align: left;"> Betweenes Centraility </th>
+            <th style="text-align: left;"> Degree Centrality </th>
         </tr>
         <tr>
 
@@ -184,10 +191,11 @@
            {% endfor %}
     </table>
 </div>
-<p style="font-size: 16px;" title="Tittelher.asdasd!">Number of communities: {{ communities + 1 }}</p>
+    <div id="communityInformation">
       <!--- Skrive ut alle communtiteis --->
     <h2>Communities </h2>
-    <p> Click on a friend to go directly to their facebook page.</p>
+    <p style="font-size: 16px;">Number of communities: {{ communities + 1 }}</p>
+    </div>
       {% for x in range(communities + 1)%}
             <table style="float: left; margin-left: 5px; font-size: 12px; background-color:#EBEBEB;" title="These are the communites. You can change the colum-name by clicking on the column.">
             <tr><th style=" background-color:{{ c[x+1]}};"  id="{{x}}" onclick="visible(this.id)">  {{ x }} <input type="hidden" onclick="visible()" id="{{ x }}text"  onkeydown="if (event.keyCode == 13) change();"></th></tr>
